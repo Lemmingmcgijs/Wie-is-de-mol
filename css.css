@@ -1,0 +1,66 @@
+/* #region algemeen */
+body {
+
+}
+/* #endregion */
+/* #region index */
+.index{
+    body {
+        background-color: black;
+        color:lime;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-family: 'Courier New', Courier, monospace;
+        height: 100vh;
+        margin:0;
+    }
+
+    .container {
+        border: 2px solid lime;
+        border-radius: 10px;
+        box-shadow: 0 0 20px lime;
+        padding: 40px;
+        text-align: center;
+    }
+
+    input {
+        border: 1px solid lime;
+        outline:none;
+        background-color: black;
+        color: lime;
+        padding: 10px;
+        font-size: 1.2em;
+        width: 150px;
+        text-align: center;
+    }
+
+    button {
+        background-color: lime;
+        color: black;
+        padding: 10px 25px;
+        border: none;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #008800;
+        color: white;
+    }
+
+    h1 {
+        letter-spacing: 5px;
+    }
+}
+/* #endregion */
+/* #region test */
+.test {
+    body {
+        background-color: black;
+        color: white;
+    }
+}
+/* #endregion */

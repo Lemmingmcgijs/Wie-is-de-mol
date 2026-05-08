@@ -62,5 +62,31 @@ body {
         background-color: black;
         color: white;
     }
+    
+    img {
+        width: 200px;
+        height: 200px;
+    }
+
+    input {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: lime;
+        cursor: pointer;
+    }
+
+    input:checked {
+        background-color: #008800;
+    }
+
+    input:checked::after{
+        content: "✓";
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
 }
 /* #endregion */

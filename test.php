@@ -5,8 +5,11 @@
     ?>
     <body>
         <img src="assets/logo.jpg">
-        <form>
-            <input type="checkbox">
-        </form>
+        <div class="container">
+            <h2>20. Wie is de mol?</h2>
+            <form>
+                <input type="checkbox">
+            </form>
+        </div>
     </body>
 </html>

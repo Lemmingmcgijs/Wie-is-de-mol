@@ -61,6 +61,11 @@ body {
     body {
         background-color: black;
         color: white;
+        display: flex;
+    }
+
+    .container {
+        margin-top: 75px;
     }
     
     img {
@@ -74,12 +79,12 @@ body {
         height: 20px;
         border: 1px solid white;
         border-radius: 5px;
-        background-color: lime;
+        background: linear-gradient(lime, #008800);
         cursor: pointer;
     }
 
     input:checked {
-        background-color: #008800;
+        
     }
 
     input:checked::after{

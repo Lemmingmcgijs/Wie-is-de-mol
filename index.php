@@ -4,7 +4,7 @@
         include("head.php");
     ?>
     <body>
-        <div class="container">
+        <div class="blok">
             <h1>DE TEST</h1>
             <p>VOER UW CIJFERCODE IN</p>
             <form action="test.php" method="post">

@@ -10,20 +10,24 @@
             <h2>Kandidaat: <?php echo $_POST["code"];?></h2>
         </header>
 
-        <form method="post" action="verwerk.php">
-            <div class="antwoord">
-                <input type="radio" id="ans_1" name="ans" value="1">
-                <label for="ans_1">Test1</label>
-            </div>
-            <div class="antwoord">
-                <input type="radio" id="ans_2" name="ans" value="2">
-                <label for="ans_2">Test2</label>
-            </div>
-            <div class="antwoord">
-                <input type="radio" id="ans_3" name="ans" value="3">
-                <label for="ans_3">Test3</label>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+        <div class="blok">
+            <form method="post" action="verwerk.php">
+                <ul>
+                    <li class="antwoord">
+                        <input type="radio" id="ans_1" name="ans" value="1">
+                        <label for="ans_1">Test1</label>
+                    </li>
+                    <li class="antwoord">
+                        <input type="radio" id="ans_2" name="ans" value="2">
+                        <label for="ans_2">Test2</label>
+                    </li>
+                    <li class="antwoord">
+                        <input type="radio" id="ans_3" name="ans" value="3">
+                        <label for="ans_3">Test3</label>
+                    </li>
+                    <button type="submit">Submit</button>
+                </ul>
+            </form>
+        </div>
     </body>
 </html>

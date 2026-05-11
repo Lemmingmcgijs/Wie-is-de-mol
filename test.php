@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if ($_SESSION["naam"] == Null) {
+        header("Location: index.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html class="test">
     <?php
@@ -25,22 +32,9 @@
                     </li>
                     <button type="submit">BEVESTIG KEUZE</button>
                 </ul>
-
-                <?php
-                    $host = 'localhost';
-                    $user = 'root';
-                    $pass = '';
-                    $db   = 'wie_is_de_mol';
-
-                    $conn = new mysqli($host, $user, $pass, $db);
-
-                    if ($conn->connect_error) {
-                        die("Connectie mislukt: " . $conn->connect_error);
-                    }
-                ?>
             </form>
         </div>
         
-        <h2>Kandidaat: <?php echo $_POST["code"];?></h2>
+        <h2><?php echo "Kandidaat: " . $_SESSION["naam"];?></h2>
     </body>
 </html>

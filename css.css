@@ -44,6 +44,7 @@ html {
 
     .blok {
         text-align: center;
+        padding-bottom: 0;
     }
 
     input {
@@ -59,6 +60,10 @@ html {
 
     h1 {
         letter-spacing: 0.3rem;
+    }
+
+    .melding {
+        color: red;
     }
 }
 /* #endregion */

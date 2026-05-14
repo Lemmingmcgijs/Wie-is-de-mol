@@ -12,10 +12,11 @@
 
     function get_column($result, $index) {
         $result->data_seek(0);
-        $column = [];
-        while ($waarde = $result->fetch_column($index)) {
-            $column[] = $waarde;
-        }
-        return $column;
+        return array_column($result->fetch_all(MYSQLI_NUM), $index);
+    }
+
+    function get_row($result, $index) {
+        $result->data_seek($index);
+        return $result->fetch_assoc();
     }
 ?>

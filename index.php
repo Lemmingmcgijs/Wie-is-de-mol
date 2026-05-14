@@ -14,6 +14,9 @@
     if ($_POST["code"] != Null) {
         if (in_array($_POST["code"], $codes)) {
             $_SESSION["naam"] = $names[array_search($_POST["code"], $codes)];
+            $_SESSION["vraag"] = -1;
+            $_SESSION["anss"] = [];
+
             header("Location: test.php");
             exit();
         }

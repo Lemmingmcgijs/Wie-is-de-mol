@@ -4,6 +4,16 @@
         header("Location: index.php");
         exit();
     }
+
+    $_SESSION["vraag"] +=1;
+    $_SESSION["anss"][] = $_POST["ans"];
+
+    include("config.php");
+    $sql = "SELECT * FROM vena";
+    $result = $conn->query($sql);
+
+    $vena = get_row($result, $_SESSION["vraag"]);
+    $anss = array_filter(array_slice($vena, 2));
 ?>
 <!DOCTYPE html>
 <html class="test">
@@ -14,22 +24,18 @@
         <div class="logo"><a href="index.php"><img src="assets/logo.jpg"></a></div>
         
         <div class="blok">
-            <h1>20. Wie is de mol?</h1>
+            <h1><?php echo $_SESSION["vraag"]+1 . ". " . $vena["Vraag"];?></h1>
 
-            <form method="post" action="verwerk.php">
+            <form method="post" action="<?php if ($_SESSION["vraag"] > count(get_column($result, 1))-2) { echo "verwerk.php";} else { echo "";}?>">
                 <ul>
-                    <li class="antwoord">
-                        <input type="radio" id="ans_1" name="ans" value="1">
-                        <label for="ans_1">Test1</label>
-                    </li>
-                    <li class="antwoord">
-                        <input type="radio" id="ans_2" name="ans" value="2">
-                        <label for="ans_2">Test2</label>
-                    </li>
-                    <li class="antwoord">
-                        <input type="radio" id="ans_3" name="ans" value="3">
-                        <label for="ans_3">Test3</label>
-                    </li>
+                    <?php
+                        foreach ($anss as $ans) {
+                            echo '<li class="antwoord">';
+                            echo '<input type="radio" id="ans_1" name="ans" value="' . $ans . '">';
+                            echo '<label for="ans_1">' . $ans . '</label>';
+                            echo '</li>';
+                        }
+                    ?>
                     <button type="submit">BEVESTIG KEUZE</button>
                 </ul>
             </form>

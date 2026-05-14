@@ -16,6 +16,7 @@
             $_SESSION["naam"] = $names[array_search($_POST["code"], $codes)];
             $_SESSION["vraag"] = -1;
             $_SESSION["anss"] = [];
+            $_SESSION["gestuurd"] = FALSE;
 
             header("Location: test.php");
             exit();

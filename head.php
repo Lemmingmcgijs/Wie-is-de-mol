@@ -1,5 +1,5 @@
 <head>
-    <title>Wie is de mol?</title>
-    <link rel="icon" href="assets/logo.jpg">
+    <title>WIDM? | <?php echo $_SESSION["title"]?></title>
+    <link rel="icon" href="assets/icon.jpg">
     <link rel="stylesheet" href="css.css">
 </head>

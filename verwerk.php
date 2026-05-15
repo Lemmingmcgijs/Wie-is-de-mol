@@ -1,29 +1,30 @@
 <?php
     session_start();
-    $_SESSION["anss"][] = $_POST["ans"];
-
-    if ($_SESSION["gestuurd"] == TRUE) {
-        header("Location: index.php");
+    if ($_SESSION["naam"] == Null) {
+        header("Location: login.php");
         exit();
     }
-    $_SESSION["gestuurd"] = TRUE;
-?>
-<!DOCTYPE html>
-<html class="index">
-    <?php
-        include("head.php");
-    ?>
-    <body>
-        <?php
-            include("config.php");
 
-            $ans = implode("\n", $_SESSION["anss"]);
-            $sql = "INSERT INTO antwoorden (Antwoorden, Namen) VALUES ('{$ans}', '{$_SESSION['naam']}')";
-            if ($conn->query($sql)) {
-                echo "<h1>Gelukt!</h1>";
-            } else {
-                echo "<h1>Mislukt :(</h1>";
-            }
-        ?>
-    </body>
-</html>
+    if (!isset($_POST["ans"])) {
+        header("Location: dashboard.php");
+        exit();
+    }
+
+    $_SESSION["anss"][] = $_POST["ans"];
+
+    include("config.php");
+
+    $ans = implode("\n", $_SESSION["anss"]);
+    $stmt = $conn->prepare("INSERT INTO antwoorden (Antwoorden, Namen) VALUES (?, ?) ON DUPLICATE KEY UPDATE Antwoorden = VALUES(Antwoorden)");
+    if ($stmt) {
+        $stmt->bind_param("ss", $ans, $_SESSION['naam']);
+
+        $stmt->execute();
+    }
+
+    $_SESSION["vraag"] = 0;
+    $_SESSION["anss"] = [];
+
+    header("Location: dashboard.php");
+    exit();
+?>

@@ -2,7 +2,7 @@
     session_start();
     $_SESSION["title"] = "Dashboard";
 
-    if ($_SESSION["naam"] == Null) {
+    if (!isset($_SESSION["naam"])) {
         header("Location: login.php");
         exit();
     }
@@ -13,10 +13,6 @@
     }
     if (isset($_POST["eliminatie"])) {
         header("Location: eliminatie.php");
-            exit();
-    }
-    if (isset($_POST["beoordeel"])) {
-        header("Location: beoordeel.php");
             exit();
     }
 ?>
@@ -36,7 +32,6 @@
                     <button type="submit" name="start_test">De test</button>
                     <?php if ($_SESSION["naam"] == "Gijs"): ?>
                         <button type="submit" name="eliminatie">Eliminatie</button>
-                        <button type="submit" name="beoordeel">Beoordeel</button>
                     <?php endif;?>
                 </form>
             </div>

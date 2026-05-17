@@ -8,7 +8,7 @@
 
         <div class="main-content">
             <div class="blok">
-                <h1>Je moet inloggen</h1>
+                <h1><?php if (isset($_SESSION["naam"])) {echo "Je bent ingelogd!";} else {echo "Je moet inloggen";}?></h1>
             </div>
         </div>
 

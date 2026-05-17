@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION["naam"] == Null) {
+    if (!isset($_SESSION["naam"])) {
         header("Location: login.php");
         exit();
     }

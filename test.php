@@ -2,7 +2,7 @@
     session_start();
     $_SESSION["title"] = "De test";
 
-    if ($_SESSION["naam"] == Null) {
+    if (!isset($_SESSION["naam"])) {
         header("Location: login.php");
         exit();
     }

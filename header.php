@@ -1,3 +1,4 @@
+<?php session_start();?>
 <header>
     <nav>
         <ul>
@@ -14,7 +15,7 @@
             <div class="dropdown">
                 <button class="drop-button"><h2><?php if (isset($_SESSION["naam"])) {echo $_SESSION["naam"];} else {echo "Niet ingelogd";}?> ▼</h2></button>
                 <div class="drop-content">
-                    <a href="login.php"><?php if (isset($_SESSION["naam"])) {echo "Log uit";} else {echo "Log in";}?></a>
+                    <a href="<?php if (isset($_SESSION["naam"])) {echo 'loguit.php">Log uit';} else {echo 'login.php">Log in';}?></a>
                 </div>
             </div>
         </ul>

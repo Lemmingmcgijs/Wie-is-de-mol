@@ -2,7 +2,10 @@
     session_start();
     $_SESSION["title"] = "Login";
 
-    $_SESSION["naam"] = Null;
+    if (isset($_SESSION["naam"])) {
+        header("Location: dashboard.php");
+        exit();
+    }
 
     include("config.php");
 

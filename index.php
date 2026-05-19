@@ -1,3 +1,7 @@
+<?php
+    header("Location: login.php");
+    exit();
+?>
 <!DOCTYPE html>
 <html class="index">
     <?php
@@ -11,10 +15,5 @@
                 <h1><?php if (isset($_SESSION["naam"])) {echo "Je bent ingelogd!";} else {echo "Je moet inloggen";}?></h1>
             </div>
         </div>
-
-        <?php
-            header("Location: login.php");
-            exit();
-        ?>
     </body>
 </html>

@@ -2,7 +2,7 @@
     session_start();
     $_SESSION["title"] = "Eliminatie";
 
-    if ($_SESSION["naam"] != "Gijs") {
+    if (!isset($_SESSION["naam"]) || $_SESSION["naam"] != "Gijs") {
         header("Location: dashboard.php");
         exit();
     }
@@ -15,6 +15,7 @@
     $scores = [];
     foreach (array_slice(get_column($result, 1), 1) as $key=>$naam) {
         $anss = explode("\n", get_column($result, 0)[$key+1]);
+        $tijd = get_column($result, 2)[$key+1];
         $score = 0;
         foreach ($anss as $key=>$ans) {
             $ans_goed = $anss_goed[$key];
@@ -22,9 +23,22 @@
                 $score += 1;
             }
         }
-        $scores[$naam] = $score;
+        $scores[$naam] = [
+            "score" => $score,
+            "tijd" => $tijd
+        ];
     }
-    $slechtste = array_search(min($scores), $scores);
+
+    uasort($scores, function ($a, $b) {
+        $score_comp = $b['score'] <=> $a['score'];
+        if ($score_comp !== 0) {
+            return $score_comp;
+        }
+        return $a['tijd'] <=> $b['tijd'];
+    });
+
+    end($scores);
+    $slechtste = key($scores);
     
     if (isset($_POST["naam"])) {
         if ($_POST["naam"] == $slechtste) {

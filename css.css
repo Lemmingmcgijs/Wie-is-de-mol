@@ -127,6 +127,11 @@ input:checked::after{
     ul {
         padding: 0;
         margin-left: 3rem;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 22rem;
     }
 
     .antwoord {
@@ -142,6 +147,10 @@ input:checked::after{
     label {
         font-size: 1.5rem;
         font-weight: bold;
+    }
+
+    .button {
+        margin-top: 0;
     }
 
     button {

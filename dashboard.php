@@ -35,6 +35,12 @@
                     <?php endif;?>
                 </form>
             </div>
+
+            <?php
+                if ($_SESSION["gemaakt"]) {
+                    echo "<h2>De test is succesvol ingeleverd!</h2>";
+                }
+                $_SESSION["gemaakt"] = FALSE;?>
         </div>
     </body>
 </html>

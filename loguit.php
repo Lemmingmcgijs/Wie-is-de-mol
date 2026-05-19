@@ -3,6 +3,8 @@
 
     $_SESSION["naam"] = Null;
 
+    $_SESSION["gemaakt"] = FALSE;
+
     header("Location: login.php");
     exit();
 ?>

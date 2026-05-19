@@ -7,6 +7,10 @@
         exit();
     }
 
+    if ($_SESSION["vraag"] == 0) {
+        $_SESSION["tijd"] = time();
+    }
+
     if (isset($_POST["ans"])) {
         $_SESSION["anss"][] = $_POST["ans"];
         $_SESSION["vraag"] +=1;
@@ -44,6 +48,7 @@
                         <?php
                             $i = 1;
                             foreach ($anss as $ans) {
+
                                 echo '<li class="antwoord">';
                                 echo '<input type="radio" id="ans_' . $i . '" name="ans" value="' . $ans . '" required>';
                                 echo '<label for="ans_' . $i . '">' . $ans . '</label>';
@@ -52,6 +57,8 @@
                                 $i += 1;
                             }
                         ?>
+                    </ul>
+                    <ul class="button">
                         <button type="submit">BEVESTIG KEUZE</button>
                     </ul>
                 </form>
@@ -61,3 +68,4 @@
         </div>
     </body>
 </html>
+<!-- ' . ($i > 4) ? ' kolom' : '' . ' -->

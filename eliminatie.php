@@ -54,7 +54,7 @@
         include("head.php");
     ?>
     <body>
-        <a class="logo" href="dashboard.php"><img src="assets/logo.jpg"></a>
+        <a class="logo" href="dashboard.php"><img src="assets/logo.png"></a>
 
         <div class="main-content">
             <div class="blok">

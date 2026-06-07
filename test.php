@@ -38,7 +38,7 @@
     ?>
     <body>
         <div class="main-content">
-            <div class="logo"><a href="dashboard.php"><img src="assets/logo.jpg"></a></div>
+            <div class="logo"><a href="dashboard.php"><img src="assets/logo.png"></a></div>
             
             <div class="blok">
                 <h1><?php echo $_SESSION["vraag"]+1 . ". " . $vena["Vraag"];?></h1>

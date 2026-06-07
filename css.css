@@ -362,5 +362,9 @@ header::before {
         margin: 0;
         font-size: larger;
     }
+
+    h1 {
+        letter-spacing: 0.15rem;
+    }
 }
 /* #endregion */

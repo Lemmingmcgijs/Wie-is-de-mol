@@ -6,15 +6,6 @@
         header("Location: login.php");
         exit();
     }
-
-    if (isset($_POST["start_test"])) {
-        header("Location: test.php");
-            exit();
-    }
-    if (isset($_POST["eliminatie"])) {
-        header("Location: eliminatie.php");
-            exit();
-    }
 ?>
 <!DOCTYPE html>
 <html class="dashboard">
@@ -28,17 +19,18 @@
             <h1>DASHBOARD</h1>
 
             <div class="blok">
-                <form method="post">
-                    <button type="submit" name="start_test">De test</button>
-                    <?php if ($_SESSION["naam"] == "Gijs"): ?>
-                        <button type="submit" name="eliminatie">Eliminatie</button>
-                    <?php endif;?>
-                </form>
+                <a href="test.php"><button>De test</button></a>
+                <?php if ($_SESSION["naam"] == "Gijs"): ?>
+                    <a href="eliminatie.php"><button>Eliminatie</button></a>
+                    <a href="pot.php"><button>Pot beheer</button></a>
+                <?php endif;?>
             </div>
 
             <?php
-                if ($_SESSION["gemaakt"]) {
-                    echo "<h2>De test is succesvol ingeleverd!</h2>";
+                if (isset($_SESSION["gemaakt"])) {
+                    if ($_SESSION["gemaakt"]) {
+                        echo "<h2>De test is succesvol ingeleverd!</h2>";
+                    }
                 }
                 $_SESSION["gemaakt"] = FALSE;?>
         </div>

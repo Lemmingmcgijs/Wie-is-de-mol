@@ -17,9 +17,9 @@
     $ans = implode("\n", $_SESSION["anss"]);
     $tijd = time()-$_SESSION["tijd"];
 
-    $stmt = $conn->prepare("INSERT INTO antwoorden (Antwoorden, Namen, Tijden) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE Antwoorden = VALUES(Antwoorden), Tijden = VALUES(Tijden)");
+    $stmt = $conn->prepare("UPDATE Gegevens SET Antwoorden = ?, Tijden = ? WHERE Namen = ?");
     if ($stmt) {
-        $stmt->bind_param("sss", $ans, $_SESSION["naam"], $tijd);
+        $stmt->bind_param("sis", $ans, $tijd, $_SESSION["naam"]);
 
         $stmt->execute();
     }

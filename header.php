@@ -1,15 +1,11 @@
 <header>
     <nav>
         <ul>
-            <!-- <li>
-                <a>Bla1</a>
-            </li>
-            <li>
-                <a>Bla2</a>
-            </li>
-            <li>
-                <a>Bla3</a>
-            </li> -->
+            <a href="dashboard.php"><li>
+                <h2>Dashboard</h2>
+            </li></a>
+
+            <h1>Pot: </h1>
 
             <div class="dropdown">
                 <button class="drop-button"><h2><?php if (isset($_SESSION["naam"])) {echo $_SESSION["naam"];} else {echo "Niet ingelogd";}?> ▼</h2></button>

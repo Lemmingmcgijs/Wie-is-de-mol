@@ -1,7 +1,7 @@
 <?php
     $host = 'localhost';
     $user = 'root';
-    $pass = '';
+    $pass = 'wachtwoord';
     $db = 'wie_is_de_mol';
 
     $conn = new mysqli($host, $user, $pass, $db);

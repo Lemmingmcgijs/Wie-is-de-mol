@@ -9,10 +9,10 @@
 
     include("config.php");
 
-    $sql = "SELECT * FROM inlog";
+    $sql = "SELECT Namen, Codes FROM Gegevens";
     $result = $conn->query($sql);
-    $codes = get_column($result, 0);
-    $names = get_column($result, 1);
+    $codes = get_column($result, 1);
+    $names = get_column($result, 0);
 
     $melding = "&nbsp";
 

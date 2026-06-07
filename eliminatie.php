@@ -8,15 +8,15 @@
     }
 
     include("config.php");
-    $sql = "SELECT * FROM antwoorden";
+    $sql = "SELECT Namen, Antwoorden, Tijden, Jokers FROM Gegevens WHERE Antwoorden IS NOT NULL";
     $result = $conn->query($sql);
 
-    $anss_goed = explode("\n", get_column($result, 0)[0]);
+    $anss_goed = explode("\n", get_column($result, 1)[0]);
     $scores = [];
-    foreach (array_slice(get_column($result, 1), 1) as $key=>$naam) {
-        $anss = explode("\n", get_column($result, 0)[$key+1]);
+    foreach (array_slice(get_column($result, 0), 1) as $key=>$naam) {
+        $anss = explode("\n", get_column($result, 1)[$key+1]);
         $tijd = get_column($result, 2)[$key+1];
-        $score = 0;
+        $score = get_column($result, 3)[$key+1];
         foreach ($anss as $key=>$ans) {
             $ans_goed = $anss_goed[$key];
             if ($ans == $ans_goed) {
@@ -59,6 +59,10 @@
         <div class="main-content">
             <div class="blok">
                 <?php if (!isset($_POST["naam"])): ?>
+                
+                <audio controls autoplay>
+                    <source src="assets/a_troublesome_clue.mp3" type="audio/mpeg">
+                </audio>
 
                 <h1>DE ELIMINATIE</h1>
                 <form method="post" autocomplete="off">
